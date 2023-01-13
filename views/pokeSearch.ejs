@@ -1,15 +1,16 @@
 <%- include('./header') %> 
 <h1>Pokemon Search Results</h1>
 <div class="card" style="width: 18rem;">
-  <img src="" class="card-img-top" alt="">
+  <img src="<%= pokemon.sprites.front_default %>" class="card-img-top" alt="">
   <div class="card-body">
     <h5 class="card-title"><%= pokemon.name %></h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p>Height: <%= pokemon.height %></p>
+    <p>Weight: <%= pokemon.weight %></p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
+    <% pokemon.stats.forEach(stat => { %>
+    <li class="list-group-item"><%= stat.stat.name %>: <%= stat.base_stat %></li>
+    <% }) %>
   </ul>
   <div class="card-body">
     <a href="#" class="card-link">Card link</a>

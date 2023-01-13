@@ -21,11 +21,24 @@ function pokeSearch(req, res) {
 }
 
 function weather(req, res) {
-  res.render('weather')
+  res.render('weather', {
+    results: null
+  })
+}
+
+function weatherSearch(req, res) {
+  axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${req.body.zipcode}&appid=${process.env.WEATHER_API_KEY}`)
+  .then(response => {
+    console.log(response.data)
+    res.render('weather', {
+      results: response.data
+    })
+  })
 }
 
 export {
   pokedex,
   weather,
-  pokeSearch
+  pokeSearch,
+  weatherSearch
 }

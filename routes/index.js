@@ -11,6 +11,7 @@ router.get('/', function(req, res) {
 router.get('/pokemon', apiCtrl.pokedex)
 router.get('/pokemon/:name', apiCtrl.pokeSearch)
 router.get('/weather', apiCtrl.weather)
+router.post('/weather/search', apiCtrl.weatherSearch)
 
 export { 
   router
