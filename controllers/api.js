@@ -14,8 +14,9 @@ function pokedex(req, res) {
 function pokeSearch(req, res) {
   axios.get(`https://pokeapi.co/api/v2/pokemon/${req.params.name}`)
   .then(response => {
-    console.log(response.data)
-    res.render('pokeSearch')
+    res.render('pokeSearch', {
+      pokemon: response.data
+    })
   })
 }
 
