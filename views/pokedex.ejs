@@ -1,6 +1,8 @@
-<a href="/">Back</a>
+<%- include('./header') %> 
 <h1>Pokedex</h1>
 
 <% pokemons.forEach(pokemon => { %>
   <a href="/pokemon/<%= pokemon.name %>"><%= pokemon.name %></a><br>
 <% }) %>
+
+<%- include('./footer') %> 
