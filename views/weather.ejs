@@ -7,4 +7,17 @@
   <button type="submit">Search</button>
 </form>
 
+<% if (results) { %>
+  <div class="card" style="width: 18rem;">
+    <img src="http://openweathermap.org/img/wn/<%= results.weather[0].icon %>@2x.png" class="card-img-top" alt="">
+    <div class="card-body">
+      <h5 class="card-title"><%= results.name %></h5>
+      <p><%= results.weather[0].description %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Currently <%= ((results.main.temp - 273) * 9/5 + 32).toFixed(0) %> °F</li>
+    </ul>
+  </div>
+<% } %>
+
 <%- include('./footer') %> 
