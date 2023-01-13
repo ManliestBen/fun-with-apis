@@ -8,7 +8,8 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Express' })
 })
 
-
+router.get('/pokemon', apiCtrl.pokedex)
+router.get('/weather', apiCtrl.weather)
 
 export { 
   router
